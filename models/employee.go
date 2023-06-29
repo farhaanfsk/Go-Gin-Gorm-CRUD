@@ -3,7 +3,7 @@ package models
 import "github.com/google/uuid"
 
 type Employee struct {
-	Id      uuid.UUID
+	Id      uuid.UUID `gorm:"primaryKey"`
 	Name    string
-	Address Address
+	Address Address `gorm:"foreignKey:Id;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
